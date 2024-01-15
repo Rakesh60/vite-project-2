@@ -7,6 +7,9 @@ connectToMongo();
 const app=express();
 const port=4000;
 
+// middle ware
+app.use(express.json());
+
 // Available routes
 app.use('/api/auth',auth);
 app.use('/api/notes',notes)

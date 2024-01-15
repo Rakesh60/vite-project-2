@@ -1,18 +1,10 @@
 import express from 'express';
 
 const router=express.Router();
+import User from '../models/user.js'
 
-router.get('/',(req,res)=>{
-    const obj={
-        name:'Rakesh Kumar',
-        rollnumber:25,
-        branch:'CSE'
-    }
- res.json(obj);
+router.post('/',(req,res)=>{
+    console.log('req.body')
 })
-router.get('/login',(req,res)=>{
- res.send("Hello LOGIN");
-})
-
 
 export default router
