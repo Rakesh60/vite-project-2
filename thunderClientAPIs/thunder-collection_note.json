@@ -1,0 +1,76 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "note",
+    "dateExported": "2024-01-16T18:33:01.226Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "d261a9f8-c32b-4dc3-882b-5287aae364b4",
+            "colId": "aead68f2-700b-4e8f-a73e-ede6f01fdb91",
+            "containerId": "",
+            "name": "fetch all notes",
+            "url": "http://localhost:4000/api/notes/fetchallnotes",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-01-16T13:57:10.482Z",
+            "modified": "2024-01-16T16:25:32.020Z",
+            "headers": [
+                {
+                    "name": "auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWE2ODg4YzhmNGU2ODhjNzFiOGJmYTMiLCJpYXQiOjE3MDU0MjIyMzksImV4cCI6MTcwNjAyNzAzOX0.xI6LU9TB0mABr3uLuPuzqYLriLCJGZrRl0fdMDDOzk8"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "f80f2c4f-72db-45fd-84d8-cc2f68ad0575",
+            "colId": "aead68f2-700b-4e8f-a73e-ede6f01fdb91",
+            "containerId": "",
+            "name": "add note",
+            "url": "http://localhost:4000/api/notes/addnote",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-01-16T14:00:20.793Z",
+            "modified": "2024-01-16T14:03:33.032Z",
+            "headers": [
+                {
+                    "name": "auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWE2ODg4YzhmNGU2ODhjNzFiOGJmYTMiLCJpYXQiOjE3MDU0MTMxODYsImV4cCI6MTcwNjAxNzk4Nn0.aCP63B9trU0cxpE35sXnT3geHvbbGWJ53enBg24yMTo"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\":\"energize mind\",\n  \"description\":\"Powerful Book by gaur das\",\n  \"tag\":\"philosophy\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "dbe4a4dd-3661-493d-8cb8-45eab0ead998",
+            "colId": "aead68f2-700b-4e8f-a73e-ede6f01fdb91",
+            "containerId": "",
+            "name": "Update Note",
+            "url": "http://localhost:4000/api/notes/updatenote/65a68cb48f4e688c71b8bfa8",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-01-16T16:22:54.200Z",
+            "modified": "2024-01-16T16:28:36.605Z",
+            "headers": [
+                {
+                    "name": "auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWE2ODg4YzhmNGU2ODhjNzFiOGJmYTMiLCJpYXQiOjE3MDU0MjIyMzksImV4cCI6MTcwNjAyNzAzOX0.xI6LU9TB0mABr3uLuPuzqYLriLCJGZrRl0fdMDDOzk8"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\":\"Updated AngularJS\",\n  \"description\":\"Updated plain Js To Angular JS\",\n  \"tag\":\"Ng\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
