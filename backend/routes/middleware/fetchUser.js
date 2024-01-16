@@ -11,7 +11,7 @@ const fetchUser=(req,res,next)=>{
 
 
     try {
-        const {userId}=jwt.verify(token,process.env.JWT_SECRET)
+        const {userId}=jwt.verify(token,process.env.JWT_SECRET);
         req.userId=userId
         console.log("Fetch user :",userId)
         next();
