@@ -9,6 +9,7 @@ import UpdateNote from "./pages/updatenote/UpdateNote";
 import NoPage from "./pages/nopage/NoPage";
 import Profile from "./pages/profile/Profile";
 import MyState from "./context/data/myState";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (

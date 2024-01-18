@@ -9,6 +9,7 @@ const port=4000;
 
 // middle ware
 app.use(express.json());
+app.use(cors())
 
 // Available routes
 app.use('/api/auth',auth);
