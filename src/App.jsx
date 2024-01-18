@@ -24,6 +24,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/*" element={<NoPage />} />
         </Routes>
+        <Toaster /> //Toaster
       </Router>
     </MyState>
   );
