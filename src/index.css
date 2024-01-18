@@ -5,3 +5,12 @@
 /* body {
   background-color: black;
 } */
+
+body{
+  background-image: linear-gradient(to top, rgb(190, 246, 229), rgb(35, 38, 223));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.inputShadow{
+  box-shadow: inset 2px 1px 5px 2px rgba(0, 0, 0, 0.10);
+}
