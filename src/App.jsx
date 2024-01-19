@@ -1,6 +1,11 @@
 import React from "react";
 
-import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
@@ -16,12 +21,40 @@ function App() {
     <MyState>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={
+              <ProctectedRoute>
+                <Home />
+              </ProctectedRoute>
+            }
+          />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/addnote" element={<AddNote />} />
-          <Route path="/updatenote" element={<UpdateNote />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route
+            path="/addnote"
+            element={
+              <ProctectedRoute>
+                <AddNote />
+              </ProctectedRoute>
+            }
+          />
+          <Route
+            path="/updatenote"
+            element={
+              <ProctectedRoute>
+                <UpdateNote />
+              </ProctectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProctectedRoute>
+                <Profile />
+              </ProctectedRoute>
+            }
+          />
           <Route path="/*" element={<NoPage />} />
         </Routes>
         <Toaster /> //Toaster
@@ -32,12 +65,11 @@ function App() {
 
 export default App;
 
-
-export const ProctectedRoute=({children})=>{
-  const token=localStorage.getItem('token')
+export const ProctectedRoute = ({ children }) => {
+  const token = localStorage.getItem("token");
   if (token) {
-    return children
+    return children;
   } else {
-    return <Navigate to={'/login'}/>
+    return <Navigate to={"/login"} />;
   }
-}
+};

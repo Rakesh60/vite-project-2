@@ -32,7 +32,7 @@ router.post("/addnote", fetchUser, async (req, res) => {
 
     //Saving notes
     const saveNote = await notes.save();
-    res.json(saveNote);
+    res.json({ saveNote, success: "Note Added Successfully" });
   } catch (error) {
     console.log(error);
     res.status(500).send("Internal Server Error");
@@ -91,23 +91,21 @@ router.delete("/deletenote/:id", fetchUser, async (req, res) => {
 });
 
 //*Route5: Get Notes by id
-router.get('/notes/:id', fetchUser, async (req, res) => {
+router.get("/notes/:id", fetchUser, async (req, res) => {
   try {
-      const { id } = req.params;
+    const { id } = req.params;
 
-      const notes = await Notes.findById({ _id: id });
-      console.log(notes)
+    const notes = await Notes.findById({ _id: id });
+    console.log(notes);
 
-      if (notes) {
-          return res.status(200).json(notes);
-      } else {
-          return res.status(404).json({ success: "notes Not Found" });
-      }
+    if (notes) {
+      return res.status(200).json(notes);
+    } else {
+      return res.status(404).json({ success: "notes Not Found" });
+    }
   } catch (error) {
-      res.status(500).send("Internal Server Error");
+    res.status(500).send("Internal Server Error");
   }
-
-})
-
+});
 
 export default router;
