@@ -1,7 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function SideBar() {
+    const navigate=useNavigate();
+
+    const logout=()=>{
+        localStorage.clear('token');
+        navigate('/login')
+    }
 
     return (
         <div className='  bg-gradient-to-t from-purple-500 to-[#F6E0BE] h-screen border-r '>
@@ -54,13 +60,13 @@ function SideBar() {
                     </Link>
 
                     {/* Logout  */}
-                    <li className='flex space-x-2  transition-all items-center  h-16 hover:bg-white w-52 p-2 rounded-l-xl cursor-pointer '>
+                    <li onClick={logout} className='flex space-x-2  transition-all items-center  h-16 hover:bg-white w-52 p-2 rounded-l-xl cursor-pointer '>
                         <span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
                             </svg>
                         </span>
-                        <span className=' font-semibold text-xl'>Logout</span>
+                        <span  className=' font-semibold text-xl'>Logout</span>
                     </li>
                 </div>
 

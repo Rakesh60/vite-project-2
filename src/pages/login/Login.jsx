@@ -1,6 +1,44 @@
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
+import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 function Login() {
+     //* creating two useState
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    //* navigate
+    const navigate = useNavigate();
+
+    //* Login Handle Function 
+    const loginHandle = async () => {
+
+        const res = await fetch('http://localhost:4000/api/auth/login', {
+            method : 'POST',
+            headers : {
+                'content-type': 'application/json'
+            },
+            body : JSON.stringify({email,password})
+        });
+
+         //* receiving response 
+        const loginData = await res.json();
+        // console.log(loginData);
+        // console.log(loginData.token)
+
+        //* condition
+        if(loginData.error){
+            toast.error(loginData.error);
+        }else{
+            navigate('/')
+            toast.success(loginData.success)
+            localStorage.setItem('token', loginData.token)
+        }
+
+        setEmail("");
+        setPassword("");
+
+    }
    
     return (
         <div className=' flex justify-center items-center h-screen'>
@@ -18,6 +56,8 @@ function Login() {
                     <input 
                         type="email"
                         name='email'
+                        value={email}
+                        onChange={(e)=>setEmail(e.target.value)}
                         className=' bg-gray-100 border border-gray-700 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-black placeholder:text-black outline-none'
                         placeholder='Email'
                     />
@@ -26,6 +66,8 @@ function Login() {
                 {/* Input 2 Password  */}
                 <div>
                     <input
+                    value={password}
+                    onChange={(e)=>setPassword(e.target.value)}
                         type="password"
                         className='bg-gray-100 border border-gray-700 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-black placeholder:text-black outline-none'
                         placeholder='Password'
@@ -34,7 +76,7 @@ function Login() {
 
                 {/* Button For Login  */}
                 <div className=' flex justify-center mb-3'>
-                    <button
+                    <button onClick={loginHandle}
                         className=' bg-green-700 w-full text-white font-bold  px-2 py-2 rounded-lg'>
                         Login
                     </button>

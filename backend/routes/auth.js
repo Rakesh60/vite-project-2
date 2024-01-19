@@ -77,10 +77,10 @@ router.post("/login", async (req, res) => {
 
     //if match password then generate token
     if (doMatch) {
-      const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, {
+      const token = jwt.sign({ userId: user.id }, "" + process.env.JWT_SECRET, {
         expiresIn: "7d",
       });
-      res.status(201).json({ token });
+      res.status(201).json({ token,success:'Login Successfull' });
     } else {
       res.status(404).json({ error: "Email and Password not Found" });
     }
