@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import myContext from "../../context/data/myContext";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 function NotesCard() {
   const context = useContext(myContext);
@@ -14,8 +15,8 @@ function NotesCard() {
   return (
     <div>
       <section className=" body-font ">
-        <div className="container px-5 py-5 mx-auto ">
-          <h2 className=" text-center font-bold underline text-3xl mb-8">
+        <div className="container px-5 py-5 mx-auto  mt-10">
+          <h2 className=" text-center font-bold underline text-3xl mb-8 ">
             All Notes
           </h2>
 
@@ -94,7 +95,7 @@ function NotesCard() {
                     );
                   })
                 ) : (
-                  <h1 className=" mb-2 text-xl font-bold">Notes Not Found</h1>
+                  <h1 className=" mb-2 text-xl font-bold">Notes Not Found !</h1>
                 )}
               </>
             )}
