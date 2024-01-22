@@ -40,7 +40,7 @@ function App() {
             }
           />
           <Route
-            path="/updatenote"
+            path="/notes/edit/:id"
             element={
               <ProctectedRoute>
                 <UpdateNote />

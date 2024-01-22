@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 
 function NotesCard() {
   const context = useContext(myContext);
-  const { allNotes, getAllNotes, loading } = context;
+  const { allNotes, getAllNotes, loading, deleteNote } = context;
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -53,6 +53,7 @@ function NotesCard() {
                               </div>
                               <div className=" flex items-center space-x-2">
                                 {/* Edit icon */}
+                                <Link to={`/notes/edit/${_id}`}>
                                 <div className="edit">
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -69,10 +70,14 @@ function NotesCard() {
                                     />
                                   </svg>
                                 </div>
+                                </Link>
 
                                 {/* Delete Icon  */}
                                 <div className="del">
                                   <svg
+                                    onClick={() => {
+                                      deleteNote(_id);
+                                    }}
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
                                     viewBox="0 0 24 24"

@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Layout from '../../components/layout/Layout'
+import { useParams,useNavigate } from 'react-router-dom';
 
 function UpdateNote() {
+    const [title,setTitle]=useState('');
+    const [description,setDescription]=useState('');
+    const [tag,setTag]=useState('');
+
+    //get id from useParams
+    const {id}=useParams();
+    //navigate
+    const navigate=useNavigate();
+
+    //*get notes by id
+
     return (
         <Layout>
             <div className=' lg:mx-[6em] mt-16 lg:mt-0 flex justify-center items-center h-screen'>
